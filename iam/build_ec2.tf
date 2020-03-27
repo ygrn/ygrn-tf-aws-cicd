@@ -37,6 +37,18 @@ resource "aws_iam_role_policy" "build_ec2" {
 }
 
 data "aws_iam_policy_document" "build_ec2" {
+
+  statement {
+    sid       = "globals"
+    effect    = "Allow"
+    actions   = [
+      "s3:List*"
+    ]
+    resources = [
+      "*"
+    ]
+  }
+
   statement {
     sid       = "s3"
     effect    = "Allow"
@@ -47,7 +59,8 @@ data "aws_iam_policy_document" "build_ec2" {
       "s3:DeleteObject"
     ]
     resources = [
-      var.artifacts_bucket_arn
+      var.artifacts_bucket_arn,
+      "${var.artifacts_bucket_arn}/*"
     ]
   }
 }
