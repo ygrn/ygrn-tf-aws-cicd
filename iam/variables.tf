@@ -17,3 +17,11 @@ variable "build_sqs_arn" {
 variable "project" {
   type = string
 }
+
+variable "artifacts_bucket_arn" {
+  type = string
+}
+
+variable "serverless_bucket_arn" {
+  type = string
+}

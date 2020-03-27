@@ -1,5 +1,5 @@
-resource "aws_iam_role" "build" {
-  name = "${var.account_name}-${var.project}-build-${var.env}"
+resource "aws_iam_role" "build_lambda" {
+  name = "${var.account_name}-${var.project}-build-lambda-${var.env}"
 
   tags = {
       env             = var.env
@@ -25,13 +25,13 @@ resource "aws_iam_role" "build" {
 EOF
 }
 
-resource "aws_iam_role_policy" "build" {
-  name    = "${var.account_name}-${var.project}-build-${var.env}"
-  role    = aws_iam_role.build.id
-  policy  = data.aws_iam_policy_document.build.json
+resource "aws_iam_role_policy" "build_lambda" {
+  name    = "${var.account_name}-${var.project}-build-lambda-${var.env}"
+  role    = aws_iam_role.build_lambda.id
+  policy  = data.aws_iam_policy_document.build_lambda.json
 }
 
-data "aws_iam_policy_document" "build" {
+data "aws_iam_policy_document" "build_lambda" {
   statement {
     sid       = "sqs"
     effect    = "Allow"
