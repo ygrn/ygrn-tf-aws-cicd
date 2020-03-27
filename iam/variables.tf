@@ -6,10 +6,14 @@ variable "deploy_type" {
   type = string
 }
 
-variable "region" {
+variable "env" {
   type = string
 }
 
-variable "env" {
+variable "build_sandbox_sqs_arn" {
+  type = string
+}
+
+variable "project" {
   type = string
 }

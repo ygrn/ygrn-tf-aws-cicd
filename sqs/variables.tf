@@ -2,11 +2,11 @@ variable "account_name" {
   type = string
 }
 
-variable "deploy_type" {
+variable "project" {
   type = string
 }
 
-variable "region" {
+variable "deploy_type" {
   type = string
 }
 

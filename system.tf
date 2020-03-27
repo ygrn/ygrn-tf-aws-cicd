@@ -1,5 +1,17 @@
-module "security_groups" {
-  source        = "./security_groups"
+module "sqs" {
+  source        = "./sqs"
   account_name  = local.account_name
-  main_vpc_id   = local.main_vpc_id
+  deploy_type   = local.deploy_type
+  project       = "cicd"
+  env           = local.env
+}
+
+module "iam" {
+  source            = "./iam"
+  account_name      = local.account_name
+  deploy_type       = local.deploy_type
+  project           = "cicd"
+  env               = local.env
+  
+  build_sandbox_sqs_arn  = local.build_sandbox_sqs_arn
 }
