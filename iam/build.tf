@@ -36,7 +36,9 @@ data "aws_iam_policy_document" "build" {
     sid       = "sqs"
     effect    = "Allow"
     actions   = [
-      "sqs:*"
+      "sqs:List*",
+      "sqs:Get*",
+      "sqs:SendMessage"
     ]
     resources = [
       var.build_sandbox_sqs_arn
