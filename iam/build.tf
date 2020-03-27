@@ -33,13 +33,26 @@ resource "aws_iam_role_policy" "build" {
 
 data "aws_iam_policy_document" "build" {
   statement {
-    sid = "sqs"
-    effect = "Allow"
-    actions = [
+    sid       = "sqs"
+    effect    = "Allow"
+    actions   = [
       "sqs:*"
     ]
     resources = [
       var.build_sandbox_sqs_arn
+    ]
+  }
+
+  statement {
+    sid       = "logs"
+    effect    = "Allow"
+    actions   = [
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:PutLogEvents"
+    ]
+    resources = [
+      "*"
     ]
   }
 }
