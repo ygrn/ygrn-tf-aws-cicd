@@ -13,5 +13,5 @@ module "iam" {
   project           = "cicd"
   env               = local.env
   
-  build_sandbox_sqs_arn  = local.build_sandbox_sqs_arn
+  build_sqs_arn  = local.build_sqs_arn
 }

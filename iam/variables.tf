@@ -10,7 +10,7 @@ variable "env" {
   type = string
 }
 
-variable "build_sandbox_sqs_arn" {
+variable "build_sqs_arn" {
   type = string
 }
 

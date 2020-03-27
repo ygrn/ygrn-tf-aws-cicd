@@ -1,5 +1,5 @@
 resource "aws_iam_role" "build" {
-  name = "${var.account_name}-${var.project}-build-sandbox-${var.env}"
+  name = "${var.account_name}-${var.project}-build-${var.env}"
 
   tags = {
       env             = var.env
@@ -26,7 +26,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "build" {
-  name    = "${var.account_name}-${var.project}-build-sandbox-${var.env}"
+  name    = "${var.account_name}-${var.project}-build-${var.env}"
   role    = aws_iam_role.build.id
   policy  = data.aws_iam_policy_document.build.json
 }
@@ -41,7 +41,7 @@ data "aws_iam_policy_document" "build" {
       "sqs:SendMessage"
     ]
     resources = [
-      var.build_sandbox_sqs_arn
+      var.build_sqs_arn
     ]
   }
 
