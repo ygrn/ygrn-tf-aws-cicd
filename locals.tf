@@ -3,6 +3,6 @@ locals {
     main_vpc_id     = data.aws_vpc.main.id
     env             = var.env
     deploy_type     = var.deploy_type
-
-    build_sqs_arn = module.sqs.build_arn
+    project         = var.project
+    build_sqs_arn   = module.sqs.build_arn
 }
