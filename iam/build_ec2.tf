@@ -57,7 +57,9 @@ data "aws_iam_policy_document" "build_ec2" {
       "s3:DeleteObject"
     ]
     resources = [
-      "${var.artifacts_bucket_arn}/*"
+      "${var.artifacts_bucket_arn}/*",
+      "${var.terraform_bucket_arn}/*",
+      "${var.serverless_bucket_arn}/*"
     ]
   }
 
