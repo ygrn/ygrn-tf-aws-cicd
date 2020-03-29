@@ -27,6 +27,6 @@ variable "serverless_bucket_arn" {
   type = string
 }
 
-variable "cicd_table_arn" {
+variable "configs_table_arn" {
   type = string
 }

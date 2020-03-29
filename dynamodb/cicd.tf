@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "cicd" {
+resource "aws_dynamodb_table" "configs" {
   name           = "${var.account_name}-${var.project}-configs-${var.env}"
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "full_name"
@@ -15,6 +15,6 @@ resource "aws_dynamodb_table" "cicd" {
   }
 }
 
-output "cicd_arn" {
-    value = aws_dynamodb_table.cicd.arn
+output "configs_arn" {
+    value = aws_dynamodb_table.configs.arn
 }

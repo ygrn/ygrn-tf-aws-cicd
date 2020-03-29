@@ -71,7 +71,7 @@ data "aws_iam_policy_document" "build_ec2" {
       "dynamodb:Delete*"
     ]
     resources = [
-      "${var.cicd_table_arn}"
+      "${var.configs_table_arn}"
     ]
   }
 }
