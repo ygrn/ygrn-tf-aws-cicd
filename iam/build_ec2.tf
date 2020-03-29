@@ -38,16 +38,40 @@ resource "aws_iam_role_policy" "build_ec2" {
 
 data "aws_iam_policy_document" "build_ec2" {
   statement {
-    sid       = "s3"
+    sid       = "globals"
     effect    = "Allow"
     actions   = [
       "s3:List*",
+      "dynamodb:List*",
+      "dynamodb:Describe*"
+    ]
+    resources = ["*"]
+  }
+  
+  statement {
+    sid       = "s3"
+    effect    = "Allow"
+    actions   = [
       "s3:Get*",
       "s3:Put*",
       "s3:DeleteObject"
     ]
     resources = [
       "${var.artifacts_bucket_arn}/*"
+    ]
+  }
+
+  statement {
+    sid       = "dyamodb"
+    effect    = "Allow"
+    actions   = [
+      "dynamodb:Get*",
+      "dynamodb:Update*",
+      "dynamodb:PutItem",
+      "dynamodb:Delete*"
+    ]
+    resources = [
+      "${var.cicd_table_arn}"
     ]
   }
 }

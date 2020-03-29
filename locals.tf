@@ -4,9 +4,4 @@ locals {
     env             = var.env
     deploy_type     = var.deploy_type
     project         = var.project
-
-    # outputs
-    build_sqs_arn           = module.sqs.build_arn
-    artifacts_bucket_arn    = module.s3.artifacts_arn
-    serverless_bucket_arn   = module.s3.serverless_arn
 }

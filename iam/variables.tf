@@ -10,11 +10,12 @@ variable "env" {
   type = string
 }
 
-variable "build_sqs_arn" {
+variable "project" {
   type = string
 }
 
-variable "project" {
+# dependencies (module outputs)
+variable "build_sqs_arn" {
   type = string
 }
 
@@ -23,5 +24,9 @@ variable "artifacts_bucket_arn" {
 }
 
 variable "serverless_bucket_arn" {
+  type = string
+}
+
+variable "cicd_table_arn" {
   type = string
 }
