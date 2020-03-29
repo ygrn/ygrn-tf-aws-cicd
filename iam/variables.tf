@@ -30,3 +30,7 @@ variable "serverless_bucket_arn" {
 variable "configs_table_arn" {
   type = string
 }
+
+variable "terraform_bucket_arn" {
+  type = string
+}

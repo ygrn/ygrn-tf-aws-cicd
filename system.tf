@@ -18,6 +18,7 @@ module "iam" {
   build_sqs_arn         = module.sqs.build_arn
   artifacts_bucket_arn  = module.s3.artifacts_arn
   serverless_bucket_arn = module.s3.serverless_arn
+  terraform_bucket_arn  = module.s3.terraform_arn
   configs_table_arn     = module.dynamodb.configs_arn
 }
 
